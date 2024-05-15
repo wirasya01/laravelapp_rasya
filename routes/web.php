@@ -4,6 +4,12 @@ use App\Models\Film;
 use App\Models\Siswa;
 use App\Models\Sekolah;
 use Illuminate\Support\Facades\Route;
+//import controller
+use App\Http\Controllers\MyController;
+//import movie controller
+use App\Http\Controllers\MovieController;
+//inport artikel
+use App\Http\Controllers\ArtikelController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,3 +34,16 @@ Route::get('/film/{id}', function (int $id) {
 Route::get('/layout', function () {
     return view('layout/layout');
     });
+
+//routhe with controller
+Route::get('perkenalan',[MyController::class, 'introduce']);
+Route::get('hewan',[MyController::class, 'animals']);
+
+//rout movie
+Route::get('movie',[MovieController::class, 'getMovie']);
+Route::get('movie/{id}',[MovieController::class, 'getMovieById']);
+
+//Rout artikel
+Route::get('artikel',[ArtikelController::class, 'getArtikel']);
+Route::get('artikel/id/{id}',[ArtikelController::class, 'getArtikelById']);
+Route::get('artikel/kategori/{kategori}',[ArtikelController::class, 'getArtikelKategori']);
