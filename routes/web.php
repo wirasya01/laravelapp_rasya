@@ -10,6 +10,8 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\MovieController;
 //inport artikel
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\PenulisController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,10 +42,18 @@ Route::get('perkenalan',[MyController::class, 'introduce']);
 Route::get('hewan',[MyController::class, 'animals']);
 
 //rout movie
-Route::get('movie',[MovieController::class, 'getMovie']);
+Route::get('movie',[MovieController::class, 'getMovie'])->middleware('auth');
 Route::get('movie/{id}',[MovieController::class, 'getMovieById']);
 
 //Rout artikel
 Route::get('artikel',[ArtikelController::class, 'getArtikel']);
 Route::get('artikel/id/{id}',[ArtikelController::class, 'getArtikelById']);
 Route::get('artikel/kategori/{kategori}',[ArtikelController::class, 'getArtikelKategori']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//route crud
+
+Route::resource('penulis', PenulisController::class);

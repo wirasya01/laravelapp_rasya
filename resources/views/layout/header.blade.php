@@ -9,17 +9,29 @@
                             tidbits. Then, link them off to some social networking sites or contact information.</p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contact</h4>
+                        @guest
+                        <h4 class="text-white">Login/Register</h4>
                         <ul class="list-unstyled">
-                            <li><a href="" class="text-white">Follow on instagram</a></li>
-                            <li><a href="#" class="text-white">Like on Facebook</a></li>
-                            <li><a href="#" class="text-white">Email me</a></li>
+                            <li><a href="{{url('login')}}" class="text-white">Login</a></li>
+                            <li><a href="{{url('register')}}" class="text-white">Register</a></li>
                         </ul>
+                        @else
+                        <h4 class="text-white">{{Auth::user()->name}}</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="{{url('logout')}}" class="text-white"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();
+                            ">Logout></li>
+                            {{-- form untuk login --}}
+                            <form action="{{route('logout')}}" method="POST" id="logout-form">
+                            @csrf
+                            </form>
+                        </ul>
+                        @endguest
                     </div>
                 </div>
             </div>
         </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="navbar navbar-dark bg-dark shadow-sm ">
             <div class="container">
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"

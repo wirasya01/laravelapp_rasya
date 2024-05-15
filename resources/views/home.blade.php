@@ -8,10 +8,13 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                   Selamat Datang @guest
-                    @else
-                     <strong>{{Auth::user()->nama}}</strong>
-                    @endguest
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('Selamat Anda Telah Login') }}  <u><b>{{Auth::user()->name}}</b></u>
                 </div>
             </div>
         </div>
