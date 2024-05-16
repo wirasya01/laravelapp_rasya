@@ -11,6 +11,8 @@ use App\Http\Controllers\MovieController;
 //inport artikel
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PenulisController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\BukuController;
 
 
 Route::get('/', function () {
@@ -57,3 +59,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //route crud
 
 Route::resource('penulis', PenulisController::class);
+Route::resource('genre', GenreController::class);
+Route::resource('buku', BukuController::class);

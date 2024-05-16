@@ -35,7 +35,7 @@ class ArtikelSeeder extends Seeder
             'foto' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpcSde-QLtLQlaj1isgMZUvUqcnk5RUDNOSEgeJh95-A&s',
             'kategori' => 'Kuliner',
             'konten' => 'Indonesia kaya akan resep masakan tradisional yang lezat dan menggugah selera. Dari rendang hingga sate, setiap daerah memiliki keunikan rasa dan cara penyajian yang khas.',
-            'penulis' => 'Chef Rudi Hartono'
+            'penulis' => 'Chef Rudi Hartono',
         ]);
 
         Artikel::insert([
